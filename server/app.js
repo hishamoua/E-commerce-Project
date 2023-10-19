@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const connectDB = require('./config/database');
 require('dotenv').config()
-
+const router = require("./routes/categorieRoutes")
 
 
 
@@ -22,5 +22,7 @@ const start = async () => {
  }
  start();
 // Example route
+
+app.use('/categories', router);
 
 
