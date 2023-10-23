@@ -1,10 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const {RegisterCustomer,GetAllCust, GetById,UpdateCust,DeleteCust} = require("../controllers/costumerController")
+const {RegisterCustomer,GetAllCust,Login, GetById,UpdateCust,DeleteCust} = require("../controllers/costumerController")
 
 
 // Create a new customer
 router.post('/customers',RegisterCustomer);
+
+//Login 
+router.post('/customers',Login);
 
 // Get all customers
 router.get('/customers', GetAllCust);

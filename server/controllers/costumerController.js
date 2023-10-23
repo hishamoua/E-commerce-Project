@@ -23,6 +23,38 @@ const RegisterCustomer = async (req, res) => {
   }
 
 
+  const Login =async (req, res) => {
+    try {
+  
+      const { email, password } = req.body;
+  
+      const existingCustomer = await Customer.findOne({ email });
+      if (!existingCustomer) {
+        return res.status(400).json({ error: 'Invalid email or password' });
+      }
+  
+      const isPasswordValid = await bcrypt.compare(password, existingCustomer.password);
+          if (!isPasswordValid) {
+            return res.status(400).json({ error: 'Invalid email or password' });
+          }
+  
+          const token = jwt.sign(
+            { id: existingCustomer._id, email: existingCustomer.email },
+            process.env.jwt, 
+            { expiresIn: '1h' } //la durée de validité du token
+          );
+  
+          Customer.last_login = Date.now();
+  
+  
+          res.status(200).json({ message: "Logged in successfully", token });
+  
+        } catch (err) {
+          console.log(err);
+          res.status(500).json({ error: 'Something went wrong' });
+        }}
+
+
 const GetAllCust = async (req, res) => {
     try {
       const customers = await Customer.find();
@@ -72,6 +104,7 @@ const GetAllCust = async (req, res) => {
 
 module.exports = {
     RegisterCustomer,
+    Login,
     GetAllCust,
     GetById,
     UpdateCust,
