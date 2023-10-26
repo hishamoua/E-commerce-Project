@@ -3,9 +3,6 @@ const app = express();
 const connectDB = require('./config/database');
 require('dotenv').config()
 
-
-
-
 const port = process.env.PORT || 5000;
 
 const start = async () => {
