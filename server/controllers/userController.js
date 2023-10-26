@@ -8,21 +8,21 @@ import jwt from 'jsonwebtoken'
 // POST api/users/login
 const authUser = asyncHandler(async (req ,res ,next)=>{
     const {user_name,password} = req.body;
-    console.log(req.body);
+    
     const user = await User.findOne({user_name});
     if(!user){
-      
       res.status(401).json({
       status: 401,
       message: "Invalid credentials"
     });
     }
+
     const passwordMatch = await bcrypt.compare(password, user.password);
 
     if(user && passwordMatch){
      req.user = user;
      const token = jwt.sign({userID: user._id},process.env.JWT_SECRET,{
-      expiresIn: '7d'
+      expiresIn: '1h'
      })
 
      const refreshToken = jwt.sign({ userID: user._id }, process.env.REFRESH_TOKEN_SECRET, {
@@ -43,17 +43,14 @@ const authUser = asyncHandler(async (req ,res ,next)=>{
          "creationDate": user.creation_date,
          "lastLogin": user.last_login,
          "lastUpdate": user.last_Update,
-         "active": true
+         "active": true,
+         "access_token":token,
+         "token_type": 'bearer',
+         "expires_in": '1h',
+         "refresh_token": refreshToken
        }})
       }
-     
-    //  },{
-    //   access_token: token,
-    //   token_type: 'bearer',
-    //   expires_in: '7d', 
-    //   refresh_token: refreshToken,
-    // })
-   
+
    else{
      res.status(401).json({
       "status": 401,
@@ -81,7 +78,7 @@ const registerUser = asyncHandler (async (req,res,next) => {
    last_update: Date.now(),
    active:true
    })
-   await user.save()
+   
    res.status(201).json({
     "status": 201,
     "message": "user created successfully"
@@ -113,55 +110,80 @@ const getUserById = asyncHandler(async (req,res,next) =>{
    const user = await User.findById(id).select("-password")
 
    if (!user) {
-    return res.status(404).json({  
+    res.status(404).json({  
      "message": "user not found"
     });
   }
-   
+   else{
    res.status(200).json({
     "status": 200,
     data: user
    })
+  }
 })
 
 
 // search for users 
 
-const searchForUser = asyncHandler(async (req,res,next) => {
- const { query, page=1, sort } = req.query;
- const limit = 10;
- const skip = (page - 1) * limit;
+// const searchForUser = asyncHandler(async (req,res,next) => {
+//  const { query, page=1, sort } = req.query;
+//  const limit = 10;
+//  const skip = (page - 1) * limit;
 
- // Use the $text operator for text search
- const users = await User.find(
-   { $text: { $search: query } },
-   { score: { $meta: 'textScore' } }
- )
-  .select("-password")
-   .sort({ score: { $meta: 'textScore' } })
-   .skip(skip)
-   .limit(limit);
+//  // Use the $text operator for text search
+//  const users = await User.find(
+//    { $text: { $search: query } },
+//    { score: { $meta: 'textScore' } }
+//  )
+//   .select("-password")
+//    .sort({ score: { $meta: 'textScore' } })
+//    .skip(skip)
+//    .limit(limit);
+
+//   res.status(200).json({
+//    status:200,
+//    data:users
+//   })
+// })
+
+const searchForUser = asyncHandler(async (req, res, next) => {
+  const { query, page = 1, sort } = req.query;
+  const limit = 10;
+  const skip = (page - 1) * limit;
+
+  const users = await User.find({
+    $or: [
+      { first_name: { $regex: new RegExp(query, 'i') } },
+      { last_name: { $regex: new RegExp(query, 'i') } },
+      { user_name: { $regex: new RegExp(query, 'i') } },
+       ],
+  })
+    .select('-password')
+    .skip(skip)
+    .limit(limit);
 
   res.status(200).json({
-   status:200,
-   data:users
-  })
-})
+    status: 200,
+    data: users,
+  });
+});
 
 // update user's data
 const updateUserDataById = asyncHandler (async (req,res,next) => {
      const id = req.params.id;
      const {first_name,last_name,email,role,active} = req.body;
     
-     // check if first name , last name , email are unique
+    
      const existingUser = await User.findOne({
        $or: [{ first_name,last_name,email, }],
-       _id: { $ne: id }, // Exclude the current user from the check
+       _id: { $ne: id }, 
      });
 
      if (existingUser) {
        return res.status(400).json({ message: 'firstname,lastname,email already in use' });
      }
+
+     
      const updatedUser = await User.findByIdAndUpdate(id, {first_name,last_name,email,role,active}, { new: true });
       
      if (!updatedUser) {
@@ -175,6 +197,7 @@ const updateUserDataById = asyncHandler (async (req,res,next) => {
       "status": 200,
       "message": "user updated successfully"
     });
+    
 })
 
 
