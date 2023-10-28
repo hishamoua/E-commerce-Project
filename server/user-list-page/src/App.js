@@ -1,12 +1,16 @@
-// App.js
 import React from 'react';
 import './App.css';
 import UserManagementPage from './UserManagement';
 
+
+
 function App() {
   return (
-    <div className="App">
-      <UserManagementPage />
+    <div className="app-container">
+      <h1 className="app-header">Welcome to User Management</h1>
+      <div className="user-management">
+        <UserManagementPage />
+      </div>
     </div>
   );
 }
