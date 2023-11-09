@@ -1,0 +1,21 @@
+/* App.css */
+
+.app-container {
+  text-align: center;
+}
+
+.app-header {
+  background-color: wheat;
+  font-size: 24px;
+  color: #3f2b06;
+  margin: 60px;
+}
+
+.user-management {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 50px;
+  margin: 50px;
+}
