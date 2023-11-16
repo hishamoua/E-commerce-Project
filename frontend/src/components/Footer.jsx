@@ -7,9 +7,9 @@ import inst from '../assets/images/icon _instagram_.png'
 import ytb from '../assets/images/icon _youtube_.png'
 
 const StyledLink  = styled(Link)`
-text-decoration: none;
+
 color: black;
-font-weight: bold;
+
 `;
 
 export const Footer = () => {

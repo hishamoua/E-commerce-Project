@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Modal from "./Modal";
-// import Modal from 'react-modal';
 import Roots from '../assets/images/ROOTS (1).png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingCart, faMagnifyingGlass, faUser } from '@fortawesome/free-solid-svg-icons'

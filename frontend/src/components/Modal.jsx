@@ -36,12 +36,17 @@ const Modal = ({ isOpen, onClose }) => {
                 backgroundColor: '#f0f0f0',
                 border: 'none',
                 padding: '8px 16px',
+                fontWeight:'bold',
                 marginTop: '10px',
                 cursor: 'pointer',
+                position:'absolute',
+                top:80,
+                right:450,
+                color:'black'
               }}
               onClick={onClose}
             >
-              ❌
+             X
             </button>
           </div>
         </div>

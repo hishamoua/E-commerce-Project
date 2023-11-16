@@ -5,7 +5,7 @@ export const Contact = () => {
      <h3>NE RATEZ PAS LES NOUVEAUTÉS ET DES OFFRES EXCLUSIVES </h3>
      <div className="form">
       <form>
-       <input type="text" placeholder="email@exemple.com" />
+       <input type="email" placeholder="email@exemple.com" />
        <button type="submit">Submit</button>
      </form>
      </div>
