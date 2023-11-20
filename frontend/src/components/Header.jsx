@@ -33,7 +33,7 @@ export const Header = () => {
               <ul className="links"> 
                 <StyledLink  to='/'><li>Home</li></StyledLink>
                 <StyledLink ><li>About us</li></StyledLink>
-                <StyledLink ><li>Collection</li></StyledLink>
+                <StyledLink to='/productPage'><li>Collection</li></StyledLink>
               </ul>
              </div>
           <div className='nav-right'>

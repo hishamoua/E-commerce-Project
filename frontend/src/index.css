@@ -59,7 +59,7 @@ ul {
  justify-content: space-around;
  align-items: center;
  background-color: #ece4e4;
- padding: 8px;
+ 
 }
 
 form{
@@ -110,21 +110,33 @@ a{
   color: black;
 }
 
-.product-page{
-  margin-block: 55px;
-}
-  
-.row {
+.container {
    display: flex;
-   align-items: center;
-   justify-content: center;
+   justify-content: end;
+   gap: 35px;
+}
+
+
+.product-image-details{
+  width: 400px;
+  margin-left: 50px;
+  height: 250px;
 }
   
 .cell {
    display: flex;
    align-items: center;
    text-align: center;
-   padding: 12px;
+   padding-inline: 35px;
+   
+   
+   border-radius: 10px;
+   transition: box-shadow 0.3s ease-in-out;
+}
+
+.cell:hover{
+  box-shadow: 6px 5px 10px rgba(168, 165, 165, 0.695);
+  cursor: pointer;
 }
   
 .colors {
@@ -137,6 +149,7 @@ a{
    display: flex;
    flex-direction: column;
    align-items: center;
+   gap: 10px;
 }
 
 video {
@@ -200,9 +213,8 @@ a:hover{
  max-width: 800px;
 }
 
-input{
+input {
   padding: 10px;
-  
 }
 
 .btn{
@@ -226,7 +238,7 @@ input{
  margin-bottom: 1.2rem;
 }
 
-.images-collection{
+.images-collection {
  display: flex;
  gap: 40px;
  align-items: center;
@@ -240,7 +252,7 @@ input{
 .cell {
  display: flex;
  flex-direction: column;
- gap: 20px;
+ gap: 50px;
 }
 
 .contact-container{
@@ -258,20 +270,25 @@ input{
  color: #D8D3D3;
 }
 
+
+.product-page{
+  display: flex;
+  flex-wrap: wrap;
+  gap:30px;
+  margin-block: 30px;
+}
+
 .contact-container h3{
  color: #F8F3E9;
 }
 
-.product-page img{
-  transition: transform .5s;
+.product-image{
+  width: 300px;
+  height: 200px;
   cursor: pointer;
 }
 
-.product-page img:hover{
-  transform: scale(0.7);
-}
-
-.form button{
+.form button {
  padding: 10px 12px;
  background-color: #4F723F;
  border: none;
@@ -376,6 +393,8 @@ input{
 .product-btn:hover{
   background-color: rgba(71, 4, 4, 0.885)
 }
+
+
 
 
 
