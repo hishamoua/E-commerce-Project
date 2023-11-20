@@ -3,6 +3,7 @@
   "version": "2.0.0",
   "description": "eCommerce application built with the mern stack",
   "type": "module",
+  "proxy":"http://localhost:5000",
   "main": "server.js",
   "scripts": {
     "start": "node backend/server.js",
