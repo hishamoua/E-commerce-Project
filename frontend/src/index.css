@@ -112,10 +112,14 @@ a{
 
 .container {
    display: flex;
-   justify-content: end;
-   gap: 35px;
+   justify-content: flex-end;
+   gap: 155px;
 }
 
+
+.btn-small{
+  width: 200px;
+}
 
 .product-image-details{
   width: 400px;

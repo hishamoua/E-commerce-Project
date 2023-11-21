@@ -9,7 +9,7 @@ color: black;
 
 export const Product = ({ product }) => {
   return (
-    
+    <StyledLink to = {`/productPage/${product._id}`}>
     <Card className="cell">
      <StyledLink to = {`/productPage/${product._id}`}>
        <Card.Img src={product.image} className="product-image" />
@@ -28,6 +28,7 @@ export const Product = ({ product }) => {
      </Card.Body>
 
     </Card>
+    </StyledLink>
     
   )
 }

@@ -18,7 +18,7 @@ export const ProductList = () => {
         <>
         <Header />
         <h1 className='title'>Latest Products</h1>
-        <Row className='container'>
+        <Row>
          {
            products.map((product)=>(
              <Col key={product.id}  xs={12} sm={6} md={4} lg={4} xl={4}>

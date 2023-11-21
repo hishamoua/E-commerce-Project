@@ -13,7 +13,7 @@
     "data:import":"node backend/seeder.js",
     "data:destroy":"node backend/seeder.js -d"
   },
-  "author": "hicham/youssef/ali_team",
+  "author": "hicham/youssef/team",
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",

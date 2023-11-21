@@ -4,6 +4,7 @@ import { LoginForm } from './components/LoginForm';
 // import { ProductPage } from './components/ProductPage';
 import {ProductList} from "./components/ProductList";
 import { ProductDetails } from "./components/ProductDetails"
+import {Cart}  from "./components/Cart";
 
 
 const Router = () => {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
  {
   path: '/productPage/:id',
   element: <ProductDetails />
+ },
+ {
+  path:'/cart',
+  element: <Cart />
  }
 
 ])
