@@ -1,0 +1,156 @@
+.panier {
+    height: auto;
+    background-color: white;
+    font-family: 'Arial', sans-serif;
+    border-bottom: 1px solid #0b0d0f;
+  }
+
+.sac-pro-noir {
+  border-bottom: 1px solid #0b0d0f;
+  color: #000000;
+  text-align: left;
+  font: 600 28px "PlusJakartaSans-SemiBold", sans-serif;
+  display: flex;
+  justify-content: flex-start;
+}
+
+  .product-detail img {
+    width: 100%;
+    height: auto;
+    border-radius: 50px;
+  }
+
+  .total-section .total, .total-section .price-details {
+    border-bottom: none; 
+    margin-bottom: 2rem;
+  }
+ 
+    
+  .quantity-btn {
+    font-size:small  ;
+    border-radius: 50%;
+    color: #0b0d0f; 
+    background-color: white;
+    border: 1px solid;
+    cursor:pointer;
+  }
+
+  
+  .quantity-btn:hover {
+    color: white;
+    background-color: #28a745; 
+    border-color: #28a745; 
+  }
+
+  
+.product-actions .fa-icon {
+
+  color: #0056b3; 
+  cursor: pointer;
+  font-size: 2rem;
+  margin-bottom: 4rem;
+}
+
+.product-actions .fa-heart:hover {
+  color: #ea0b0b;
+  transform: rotate(16deg); 
+  transition: transform 0.1s;
+}
+
+/* Hover effect pour l'icône de poubelle */
+.product-actions .fa-trash:hover {
+  color: #6c757d  ;transform: rotate(180deg); 
+  transition: transform 0.1s;
+} 
+
+  .price {
+    font-size: 2em;
+    font-weight: bold;
+  }
+    
+  .total-section .price-details {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .total-section .total {
+    font-weight: bold;
+    border-top: 1px solid #0b0d0f;
+   
+  }
+
+  .sub {
+    
+    background-color: #28a7466e;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 209px;
+  height: 37px;
+  position: relative;
+    border-radius: 30px
+  }
+  .sub:hover{
+        background-color: #0A6808;
+
+  }
+  
+
+  /* Media query pour les écrans petits (sm - tablets) */
+@media (min-width: 576px) {
+  .panier {
+    padding-top: 30px;
+  }
+  
+
+  .product-details img {
+    width: 50%; /* Taille plus appropriée pour les tablettes */
+    margin-right: 10px; /* Remet une marge à droite */
+    border-radius: 30px; /* Ajuste le rayon de bordure */
+  }
+}
+
+  
+@media (max-width: 575.98px) {
+  .panier {
+    padding: 1rem; /* Ajoutez un padding tout autour pour les mobiles */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .product-detail img {
+    border-radius: 50%; /* Moins arrondi pour ne pas prendre trop d'espace */
+    width: 80%;
+  }
+
+  .price, .product-actions .fa-icon {
+    font-size: 1rem; /* Taille de texte réduite pour ne pas surcharger l'écran */
+  }
+
+  #tittle, .total-section .total, .total-section .price-details, .product-actions .fa-icon {
+    margin-bottom: 1rem; /* Réduit les marges pour l'espacement vertical */
+  }
+
+  /* Assurez-vous que les boutons et les champs de saisie ne sont pas trop grands */
+  .quantity-btn, .quantity-inp {
+    padding: 0.25rem; /* Padding réduit */
+    font-size: 1rem; /* Taille de la police réduite */
+  }
+
+  .total-section .price-details, .total-section  {
+  
+    flex-direction: column; /* Empile les éléments verticalement */
+    align-items: center; /* Centre les éléments horizontalement */
+    text-align: center; /* Alignement du texte au centre */
+  }
+  .divDroite{
+    display: flex;
+     width: 50%; /* or any width */
+    margin: 0 auto;
+    flex-direction: column; /* Empile les éléments verticalement */
+    align-items: center; /* Centre les éléments horizontalement */
+    
+   
+  }
+}

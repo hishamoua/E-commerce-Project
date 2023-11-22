@@ -1,0 +1,61 @@
+/*Chart's CSS */
+.dashboard-card {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    margin: 10px;
+    padding: 20px;
+    background-color: white;
+    transition: transform 0.3s ease;
+  }
+  
+  .dashboard-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .card-title {
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  .card-value {
+    font-size: 2.5rem;
+    color: #555;
+  }
+  
+  .card-percentage {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  
+  .card-percentage .value {
+    font-weight: bold;
+  }
+  
+  .card-percentage .positive {
+    color: #8884d8;
+  }
+  
+  .card-percentage .negative {
+    color: red;
+  }
+  
+  .chart-container {
+    height: 100px;
+  }
+/* /////////////////////////////////////// */
+
+/*Main Css */
+.Chart-row{
+  display: flex;
+}
+.MainDash{
+  display: flex;
+  flex-direction: column;
+}
+
+.pagination-controls button{
+  font-size: xx-small;
+  border-radius: 50%;
+}
+
+
