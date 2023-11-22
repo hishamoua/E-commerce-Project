@@ -8,7 +8,10 @@ import { Header } from "./Header"
 
 
 
+
 export const Cart = () => {
+
+  
  const navigate = useNavigate();
  const dispatch = useDispatch();
 
@@ -104,8 +107,8 @@ const checkoutHandler = () => {
              ).toFixed(2)}
             </ListGroup.Item>
             <ListGroup.Item>
-             <Button type="button" className="btn-block" disabled={ cartItems.length === 0}
-             onClick={checkoutHandler}>
+             <Button type="button" className="btn-block" disabled={ cartItems.length === 0 }
+             onClick={checkoutHandler} >
               Processed to Checkout
              </Button>
             </ListGroup.Item>

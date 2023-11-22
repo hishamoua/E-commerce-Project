@@ -44,7 +44,7 @@ const Modal = ({ isOpen, onClose }) => {
                 right:450,
                 color:'black'
               }}
-              onClick={onClose}
+              onClick={ onClose }
             >
              X
             </button>

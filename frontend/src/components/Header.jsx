@@ -48,7 +48,7 @@ export const Header = () => {
              <StyledLink>
              <FontAwesomeIcon icon={faMagnifyingGlass} />
              </StyledLink>
-             <StyledLink>
+             <StyledLink to='/cart'>
              
              <FaShoppingCart />
              {
