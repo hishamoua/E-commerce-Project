@@ -1,12 +1,10 @@
-.Dashboard{
-  display: flex;
-}
-
-
 .main-content {
   padding: 20px;
 } 
 
-.container-fluid-sm {
-  background-color: #F9FAFB;}
-  
+.Dashboard {
+background-color: #F9FAFB;
+color: rgb(0, 0, 0);
+font-weight: bold;
+display: flex;
+}

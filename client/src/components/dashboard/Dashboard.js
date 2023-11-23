@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import { Navbar, NavbarToggler, Collapse, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Button } from 'reactstrap';
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Button } from 'reactstrap';
 import Sidebar from "./sidebar";
 import MainDash from "./MainDash";
 import './Dashboard.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Dashboard() {
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
-    const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
     const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
 
     return (
@@ -22,7 +21,7 @@ function Dashboard() {
 
                 {/* Le reste de la Navbar */}
                 <div className="col-md-9 ml-sm-auto col-lg-10 px-4">
-                    <div className="d-flex justify-content-between align-items-center" style={{ height: '4rem' }}>
+                    <div className="d-flex justify-content-between align-items-center" style={{ height: '1rem', marginTop:'2rem'}}>
                         <h1 className="me-3">Welcome back, Hicham</h1>
                         <Dropdown isOpen={dropdownOpen} toggle={toggleDropdown} className="me-3">
                             <DropdownToggle color='light' caret>
@@ -34,7 +33,7 @@ function Dashboard() {
                                 <DropdownItem>This month</DropdownItem>
                                 <DropdownItem>Last month</DropdownItem>
                             </DropdownMenu>
-                             <Button color="primary">Large</Button>
+                             <Button color="dark">Large</Button>
                         </Dropdown>
                        
                     </div>
