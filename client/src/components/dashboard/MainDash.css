@@ -1,56 +1,61 @@
 /*Chart's CSS */
 .dashboard-card {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 20px;
-    margin: 10px;
-    padding: 20px;
-    background-color: white;
-    transition: transform 0.3s ease;
-  }
-  
-  .dashboard-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .card-title {
-    font-size: 1rem;
-    color: #333;
-  }
-  
-  .card-value {
-    font-size: 2.5rem;
-    color: #555;
-  }
-  
-  .card-percentage {
-    font-size: 1rem;
-    margin-bottom: 20px;
-  }
-  
-  .card-percentage .value {
-    font-weight: bold;
-  }
-  
-  .card-percentage .positive {
-    color: #8884d8;
-  }
-  
-  .card-percentage .negative {
-    color: red;
-  }
-  
-  .chart-container {
-    height: 100px;
-  }
+  display: flex;
+  height: 75%;
+  margin: 50px 5px;
+  padding: 20px;
+  background-color: white;
+  transition: transform 0.3s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-title {
+  font-size: 1.1rem;
+  color: #000000;
+  border-bottom: 1px solid #b6babe;
+}
+
+.card-value {
+  font-size: 2rem;
+  font-weight: bold;
+ 
+}
+
+.card-percentage {
+  font-size: 1rem;
+  margin-top: 20px;
+}
+
+.card-percentage .value {
+  font-weight: bold;
+}
+
+.card-percentage .positive {
+  color:rgba(6, 182, 6, 0.622);
+}
+
+.card-percentage .negative {
+  color: rgba(255, 0, 0, 0.549);
+}
+.last{
+  color: #6B7280;
+}
+
+
 /* /////////////////////////////////////// */
 
 /*Main Css */
 .Chart-row{
-  display: flex;
+display: flex;
 }
 .MainDash{
-  display: flex;
-  flex-direction: column;
+height: 90%;
+display: flex;
+flex-direction: column;
 }
 
 .pagination-controls button{

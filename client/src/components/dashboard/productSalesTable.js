@@ -52,7 +52,7 @@ const ProductSalesTable = ({ data, onDelete }) => {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="container mt-5 salesTab">
       <h3>Latest product sales</h3>
       <table className="table">
         <thead>
@@ -68,7 +68,7 @@ const ProductSalesTable = ({ data, onDelete }) => {
             <tr key={item.id}>
               <td>{item.product}</td>
               <td>
-                <span className="rounded-circle bg-primary text-white p-2 mr-2">
+                <span className="rounded-circle text-white p-2 mr-2" style={{backgroundColor:'#D1D5DB'}}>
                   {item.author.initials}
                 </span>
                 {item.author.name}

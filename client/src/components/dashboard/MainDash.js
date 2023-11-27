@@ -59,26 +59,21 @@ const productSalesData = [
       setData(prevData => prevData.filter(item => item.id !== id));
     };
 
-    const salesData = [
-        { name: 'Jan', sales: 40 },
-        { name: 'Feb', sales: 30 },
-        { name: 'Mar', sales: 50 },]
-
-            
-
+   
+        
     return(
 
      <div className="MainDash container-fluid">
       
       <div className="row Chart-row f-flex ">
         <div className="col-lg-4 col-md-4">
-          <DashboardCard title="Sales" value="600" percentage={8} chartData={salesData} />
+          <DashboardCard title="Sales" value="65" percentage={10}  />
         </div>
         <div className="col-lg-4 col-md-4">
-          <DashboardCard title="Revenu" value="300" percentage={10} chartData={salesData} />
+          <DashboardCard title="Revenue" value="2530" percentage={10} />
         </div>
         <div className="col-lg-4 col-md-4">
-          <DashboardCard title="Avg. product value" value="500" percentage={20} chartData={salesData} />
+          <DashboardCard title="Avg. prod value" value="30" percentage={10} />
         </div>
       </div>
 

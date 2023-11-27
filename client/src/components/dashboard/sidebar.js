@@ -21,6 +21,7 @@ function Sidebar() {
         onChange={handleSearchChange}
       />
       <ul className="menu">
+      <h6 className="menuH6">REPORTS</h6>
         <li className="menu-item">
           <FaChartLine className="icon" />
           Analytics
@@ -29,6 +30,7 @@ function Sidebar() {
           <FaRegFileAlt className="icon" />
           Reports
         </li>
+        <h6 className="menuH6">MANAGEMENT</h6> 
         <li className="menu-item">
           <FaUsers className="icon" />
           Users
