@@ -6,12 +6,8 @@ import { Message } from "./Message"
 import { addToCart,removeFromCart } from "../slices/cartSlice"
 import { Header } from "./Header"
 
-
-
-
 export const Cart = () => {
 
-  
  const navigate = useNavigate();
  const dispatch = useDispatch();
 

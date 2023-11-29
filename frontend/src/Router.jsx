@@ -5,6 +5,7 @@ import { LoginForm } from './components/LoginForm';
 import {ProductList} from "./components/ProductList";
 import { ProductDetails } from "./components/ProductDetails"
 import {Cart}  from "./components/Cart";
+import { Register } from "./components/Register";
 
 
 const Router = () => {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
  {
    path: "/login",
    element: <LoginForm />,
+ },
+ {
+  path: 'register',
+  element: <Register />,
  },
  {
    path:"/productPage",

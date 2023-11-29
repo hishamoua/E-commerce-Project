@@ -17,7 +17,7 @@ const Modal = ({ isOpen, onClose }) => {
             backgroundColor: 'rgba(0, 0, 0, 0.5)',
             zIndex:22
           }}
-          onClick={onClose}
+          onClick={ onClose }
         >
           <div
             style={{
@@ -25,7 +25,7 @@ const Modal = ({ isOpen, onClose }) => {
               padding: '20px',
               borderRadius: '8px',
               boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
-              width: '400px', // Adjusted width to fit the content
+              width: '400px',
               textAlign: 'center',
             }}
             onClick={(e) => e.stopPropagation()}

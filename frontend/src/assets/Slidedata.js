@@ -1,5 +1,6 @@
 import slideImage1 from './images/sliderImg.png'
 import sliderImage2 from './images/slide1.png'
+import sliderImage3  from './images/cover.png'
 
 export const SliderData = [
  {
@@ -8,6 +9,9 @@ export const SliderData = [
  },
  {
   image:sliderImage2
+ },
+ {
+  image:sliderImage3
  }
 
 ]

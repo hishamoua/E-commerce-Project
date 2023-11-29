@@ -1,35 +1,43 @@
-import { useState } from "react";
-import { Badge } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { Badge,NavDropdown } from "react-bootstrap";
+import { useSelector , useDispatch} from "react-redux";
 import { Link } from "react-router-dom";
+import { useLogoutMutation } from "../slices/usersApiSlice";
 import styled from "styled-components";
-import {FaShoppingCart, FaUser } from 'react-icons/fa';
-import Modal from "./Modal";
+import { FaShoppingCart, FaUser } from 'react-icons/fa';
+// import Modal from "./Modal";
+import { logout } from "../slices/authSlice";
 import Roots from '../assets/images/ROOTS (1).png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faShoppingCart, faMagnifyingGlass, faUser } from '@fortawesome/free-solid-svg-icons'
-import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons'
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
 
 const StyledLink  = styled(Link)`
-textDecoration: none;
+text-decoration: none;
 color: black;
 `;
 
-
-
 export const Header = () => {
 
-  const { cartItems } = useSelector((state) => state.cart)
-  
+  const { cartItems } = useSelector((state) => state.cart);
+  const { userInfo } = useSelector((state) => state.auth);
 
-  console.log(cartItems);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const toggleModal = () => {
-    setIsModalOpen(!isModalOpen);
+  const [ logoutApiCall ] = useLogoutMutation();
+
+  const logoutHandler = async () => {
+     try {
+      await logoutApiCall().unwrap();
+      dispatch(logout());
+      navigate('/login')
+     } catch(error) {
+      console.log(error);
+     }
   };
-
+  
   return (
     <>
     <header>
@@ -64,16 +72,29 @@ export const Header = () => {
              }
              
              </StyledLink>
-             <StyledLink onClick={toggleModal}>
-               <FaUser /></StyledLink>
+             { userInfo ? (
+              <NavDropdown title={userInfo.name} id="username">
+                <StyledLink to='/profile'>
+                  <NavDropdown.Item>
+                    Profile
+                  </NavDropdown.Item>
+                </StyledLink>
+                <NavDropdown.Item onClick={logoutHandler}>
+                  Logout
+                </NavDropdown.Item>
+              </NavDropdown>
+            ) : (    
+              <StyledLink to='/login'>
+               <FaUser />
+              </StyledLink>)}
+         
             
           </div>
 
       </nav>
       </header>
 
-      <Modal isOpen={isModalOpen} onClose={toggleModal} />
-
+      
     </>
 )
   

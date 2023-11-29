@@ -2,8 +2,6 @@ import asyncHandler from '../middleware/asyncHandler.js';
 import User from '../models/userModel.js';
 import generateToken from '../utils/generateToken.js';
 
-
-
 // Auth user & get token 
 // POST /api/users/login
 const authUser = asyncHandler(async (req,res) => {
@@ -35,7 +33,7 @@ const registerUser = asyncHandler(async (req,res)=>{
 
    const userExists = await User.findOne({ email });
 
-   if(userExists){
+   if (userExists) {
     res.status(400)
     throw new Error('User already exists');
    }
@@ -111,8 +109,7 @@ const updateUserProfile = asyncHandler(async (req,res) => {
 
   const updatedUser = await user.save();
 
-
-  res.status(200).json({
+ res.status(200).json({
    _id: updatedUser._id,
    name: updatedUser.name,
    email: updatedUser.email,
