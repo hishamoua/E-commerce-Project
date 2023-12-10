@@ -25,7 +25,7 @@ export const Cart = () => {
 
 
 const checkoutHandler = () => {
-  navigate('/login')
+  navigate('/shipping')
 }
 
 

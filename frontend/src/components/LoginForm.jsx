@@ -30,8 +30,7 @@ export const LoginForm = () => {
   const redirect = sp.get('redirect') || '/';
 
     useEffect( () => {
-      
-       if (userInfo) {
+      if (userInfo) {
          navigate(redirect);
        }
       
@@ -48,7 +47,6 @@ export const LoginForm = () => {
     } catch (error) {
       console.log(error);
       toast.error(error.data.message || error.error);
-      
     }
 }
    
